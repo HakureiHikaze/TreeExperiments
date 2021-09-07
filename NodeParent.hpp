@@ -5,8 +5,10 @@
 
 #include <cstdlib>
 
-template<typename T>
-struct NodeParent {
-    T data;
-    size_t parent;
-};
+namespace Hikaze {
+    template<typename T>
+    struct NodeParent {
+        T data;
+        size_t parent;
+    };
+}

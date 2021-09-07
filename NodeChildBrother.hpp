@@ -3,3 +3,11 @@
 //
 
 #pragma once
+
+namespace Hikaze {
+    template<typename T>
+    struct CBNode {
+        T data;
+        CBNode<T> *pChildArray, *pBrother;
+    };
+}

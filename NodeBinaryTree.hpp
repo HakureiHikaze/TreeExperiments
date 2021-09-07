@@ -3,3 +3,11 @@
 //
 
 #pragma once
+
+namespace Hikaze{
+    template<typename T>
+    struct BTNode{
+        T data;
+        BTNode<T>* pLeft,* pRight;
+    };
+}
