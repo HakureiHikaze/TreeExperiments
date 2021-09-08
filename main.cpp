@@ -3,8 +3,8 @@
 #include "SeqBTree.hpp"
 using namespace std;
 int main() {
-    Hikaze::SeqBTree<float> t;
-    double i = 0;
+    Hikaze::SeqBTree<double> t;
+    double i = 47.25;
     int j = 0;
     while(i<100.0){
         t.setElement(j, cos(i));

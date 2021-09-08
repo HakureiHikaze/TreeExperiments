@@ -50,7 +50,7 @@ namespace Hikaze {
     void SeqBTree<T>::setElement(unsigned int index, const T & data) {
         size_t capBuffer = 0;
         if(index>=capacity) capBuffer = capacity;
-        while(index>capacity-1){
+        while(index>=capacity){
             order++;
             capacity += 1<<(order-1);
         }
@@ -62,9 +62,10 @@ namespace Hikaze {
             for(int i = 0;i<capBuffer; i++){
                 pDataArray[i] = pBuffer[i];
             }
-            delete[] pBuffer;
+            //std::cout<<malloc(pBuffer);
+            delete pBuffer;
         }
-        pDataArray[index-1] = data;
+        *(pDataArray+index-1) = data;
 
     }
 
