@@ -57,16 +57,11 @@ namespace Hikaze {
         if(capBuffer){
             T* pBuffer = pDataArray;
             pDataArray = (T*) calloc(capacity, sizeof(T));
-            std::cout<<"Capacity extended.\tNew capacity: "<<std::to_string(capacity)<<std::endl;
-            //std::copy(pBuffer, pBuffer+capBuffer, pDataArray);
-            for(int i = 0;i<capBuffer; i++){
-                pDataArray[i] = pBuffer[i];
-            }
-            //std::cout<<malloc(pBuffer);
-            delete pBuffer;
+            //std::cout<<"Capacity extended.\tNew capacity: "<<std::to_string(capacity)<<std::endl;
+            for(int i = 0;i<capBuffer; i++)pDataArray[i] = pBuffer[i];
+            delete[] pBuffer;
         }
         *(pDataArray+index-1) = data;
-
     }
 
     template<typename T>
