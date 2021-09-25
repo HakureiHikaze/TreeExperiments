@@ -6,6 +6,8 @@
 
 #include "NodeBinaryTree.hpp"
 #include "IBinaryTree.hpp"
+#include "LinkedQueue.hpp"
+#include <vector>
 namespace Hikaze {
     template<typename T>
     class BinaryTree : IBinaryTree<T>{
@@ -24,7 +26,6 @@ namespace Hikaze {
         void preOrder(BTNode<T>*);
         void inOrder(BTNode<T>*);
         void postOrder(BTNode<T>*);
-        void levelOrder(BTNode<T>*);
     };
 
     template<typename T>
@@ -80,5 +81,25 @@ namespace Hikaze {
     template<typename T>
     void BinaryTree<T>::postOrder() {
         postOrder(pRoot);
+    }
+
+    template<typename T>
+    void BinaryTree<T>::levelOrder() {
+        LinkedQueue<BTNode<T>> queue;
+        BTNode<T>* p = nullptr;
+        if(pRoot == nullptr) return;
+        queue.Enqueue(pRoot);
+        while(!queue.isEmpty()){
+            p = queue.Dequeue();
+            std::cout<<*p;
+            if(p->pLeft) queue.Enqueue(p->pLeft);
+            if(p->pRight) queue.Enqueue(p->pRight);
+        }
+    }
+
+    template<typename T>
+    void BinaryTree<T>::setElement(unsigned int index, const T & data) {
+        std::vector<BTNode<T>> vector;
+
     }
 }
